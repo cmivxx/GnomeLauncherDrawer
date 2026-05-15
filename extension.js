@@ -161,7 +161,9 @@ class LauncherButton extends PanelMenu.Button {
         });
         scroll.set_size(drawerWidth, drawerHeight);
 
-        const grid = new St.Widget({
+        // St.Viewport (not St.Widget) — implements StScrollable so it can
+        // live inside St.ScrollView, and accepts a custom layout_manager.
+        const grid = new St.Viewport({
             style_class:    'launcher-drawer-grid',
             layout_manager: new Clutter.FlowLayout({
                 orientation:    Clutter.Orientation.HORIZONTAL,
