@@ -301,7 +301,7 @@ class LauncherButton extends PanelMenu.Button {
 export default class LauncherDrawerExtension extends Extension {
 
     enable() {
-        this._settings = this.getSettings();
+        this._settings = this.getSettings('org.gnome.shell.extensions.launcher-drawer');
         this._button   = null;
 
         this._makeButton();
