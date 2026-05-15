@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.launcher-drawer"
+          path="/org/gnome/shell/extensions/launcher-drawer/">
+
+    <!-- Panel button -->
+    <key name="drawer-icon-name" type="s">
+      <default>'view-grid-symbolic'</default>
+      <summary>Panel button icon name</summary>
+      <description>Themed icon name shown in the panel for the drawer button.</description>
+    </key>
+
+    <key name="panel-box" type="s">
+      <default>'right'</default>
+      <summary>Panel area (left / center / right)</summary>
+    </key>
+
+    <!-- Hotkey — stored as a strv so wm.addKeybinding can consume it directly -->
+    <key name="hotkey" type="as">
+      <default><![CDATA[['<Super>F1']]]></default>
+      <summary>Keyboard shortcut to toggle the drawer</summary>
+    </key>
+
+    <!-- App list -->
+    <key name="apps" type="as">
+      <default>[]</default>
+      <summary>Ordered list of .desktop app IDs shown in the drawer</summary>
+    </key>
+
+    <!-- Drawer geometry -->
+    <key name="drawer-width" type="i">
+      <default>320</default>
+      <range min="120" max="1200"/>
+      <summary>Drawer width in pixels</summary>
+    </key>
+
+    <key name="drawer-height" type="i">
+      <default>400</default>
+      <range min="80" max="1200"/>
+      <summary>Drawer height in pixels</summary>
+    </key>
+
+    <!-- Icon appearance -->
+    <key name="icon-size" type="i">
+      <default>48</default>
+      <range min="16" max="128"/>
+      <summary>App icon size in pixels</summary>
+    </key>
+
+    <key name="show-labels" type="b">
+      <default>true</default>
+      <summary>Show app name labels below icons</summary>
+    </key>
+
+    <!-- Animation -->
+    <key name="animation-duration" type="i">
+      <default>280</default>
+      <range min="0" max="2000"/>
+      <summary>Open/close animation duration in milliseconds</summary>
+    </key>
+
+  </schema>
+</schemalist>

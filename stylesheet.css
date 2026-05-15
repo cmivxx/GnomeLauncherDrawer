@@ -1,0 +1,65 @@
+/* ── Drawer container ────────────────────────────────────────────────── */
+
+.launcher-drawer {
+    background-color: rgba(28, 28, 32, 0.96);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 10px;
+    /* layered shadow: tight + wide */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.40),
+                0 16px 48px rgba(0, 0, 0, 0.55);
+}
+
+.launcher-drawer-scroll {
+    border-radius: 8px;
+    background: transparent;
+}
+
+.launcher-drawer-grid {
+    padding: 4px;
+}
+
+/* ── App buttons ─────────────────────────────────────────────────────── */
+
+.launcher-drawer-app-btn {
+    border-radius: 10px;
+    padding: 8px 6px 6px 6px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition-duration: 120ms;
+}
+
+.launcher-drawer-app-btn:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.launcher-drawer-app-btn:active {
+    background-color: rgba(255, 255, 255, 0.20);
+}
+
+.launcher-drawer-app-btn:focus {
+    outline: 2px solid rgba(120, 160, 255, 0.70);
+    outline-offset: -2px;
+}
+
+.launcher-drawer-app-content {
+    spacing: 4px;
+}
+
+.launcher-drawer-app-icon {
+    icon-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.launcher-drawer-app-label {
+    font-size: 10.5pt;
+    color: rgba(255, 255, 255, 0.88);
+    text-align: center;
+    max-width: 80px;
+}
+
+/* ── Panel button ────────────────────────────────────────────────────── */
+
+.launcher-drawer-button:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
