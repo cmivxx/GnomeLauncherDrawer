@@ -3,6 +3,7 @@
   "description": "A configurable app launcher drawer in the taskbar. Click the panel icon (or press a hotkey) to slide out a grid of your favourite apps.",
   "uuid": "launcher-drawer@cmivxx",
   "shell-version": ["45", "46", "47", "48", "49"],
+  "settings-schema": "org.gnome.shell.extensions.launcher-drawer",
   "version": 1,
   "url": ""
 }
