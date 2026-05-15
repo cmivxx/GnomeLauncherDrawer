@@ -8,6 +8,7 @@ import Pango from 'gi://Pango';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
+import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
@@ -18,15 +19,17 @@ import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 const LauncherButton = GObject.registerClass(
 class LauncherButton extends PanelMenu.Button {
 
-    _init(settings) {
-        // dontCreateMenu = true → we manage our own popup
-        super._init(0.5, 'Gnome Launcher Drawer', true);
+    _init(settings, extension) {
+        // We keep the default PopupMenu (for right-click) but route
+        // left-click to the drawer instead of opening that menu.
+        super._init(0.5, 'Gnome Launcher Drawer');
 
-        this._settings = settings;
-        this._drawer   = null;
-        this._isOpen   = false;
-        this._clickId  = null;
-        this._settIds  = [];
+        this._settings  = settings;
+        this._extension = extension;
+        this._drawer    = null;
+        this._isOpen    = false;
+        this._clickId   = null;
+        this._settIds   = [];
 
         this._icon = new St.Icon({
             icon_name:   settings.get_string('drawer-icon-name'),
@@ -34,11 +37,30 @@ class LauncherButton extends PanelMenu.Button {
         });
         this.add_child(this._icon);
 
+        // Right-click menu
+        const prefsItem = new PopupMenu.PopupMenuItem('Preferences');
+        prefsItem.connect('activate', () => {
+            this.menu.close();
+            this._extension.openPreferences();
+        });
+        this.menu.addMenuItem(prefsItem);
+
         this._connectSettings();
 
+        // Intercept button-press: left = drawer, right = native menu,
+        // everything else is left alone.
         this.connect('button-press-event', (_actor, event) => {
-            if (event.get_button() === 1) {
+            const button = event.get_button();
+            if (button === 1) {
+                if (this.menu.isOpen)
+                    this.menu.close();
                 this.toggleDrawer();
+                return Clutter.EVENT_STOP;
+            }
+            if (button === 3) {
+                if (this._isOpen)
+                    this.closeDrawer();
+                this.menu.toggle();
                 return Clutter.EVENT_STOP;
             }
             return Clutter.EVENT_PROPAGATE;
@@ -326,7 +348,7 @@ export default class LauncherDrawerExtension extends Extension {
     }
 
     _makeButton() {
-        this._button = new LauncherButton(this._settings);
+        this._button = new LauncherButton(this._settings, this);
         Main.panel.addToStatusArea(
             this.uuid,
             this._button,
