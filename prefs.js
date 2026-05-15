@@ -112,7 +112,7 @@ class AppPickerDialog extends Gtk.Dialog {
 export default class LauncherDrawerPreferences extends ExtensionPreferences {
 
     fillPreferencesWindow(win) {
-        const s = this.getSettings();
+        const s = this.getSettings('org.gnome.shell.extensions.launcher-drawer');
         win.set_default_size(640, 700);
 
         win.add(this._pageAppearance(s));
