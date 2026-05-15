@@ -1,5 +1,5 @@
 {
-  "name": "Launcher Drawer",
+  "name": "Gnome Launcher Drawer",
   "description": "A configurable app launcher drawer in the taskbar. Click the panel icon (or press a hotkey) to slide out a grid of your favourite apps.",
   "uuid": "launcher-drawer@cmivxx",
   "shell-version": ["45", "46", "47", "48", "49"],

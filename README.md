@@ -1,6 +1,33 @@
-# Launcher Drawer
+<div align="center">
 
-> A slick, configurable app-launcher drawer for the GNOME taskbar.
+<pre>
+ ██████╗ ███╗   ██╗ ██████╗ ███╗   ███╗███████╗
+██╔════╝ ████╗  ██║██╔═══██╗████╗ ████║██╔════╝
+██║  ███╗██╔██╗ ██║██║   ██║██╔████╔██║█████╗  
+██║   ██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══╝  
+╚██████╔╝██║ ╚████║╚██████╔╝██║ ╚═╝ ██║███████╗
+ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+
+██╗      █████╗ ██╗   ██╗███╗   ██╗ ██████╗██╗  ██╗███████╗██████╗ 
+██║     ██╔══██╗██║   ██║████╗  ██║██╔════╝██║  ██║██╔════╝██╔══██╗
+██║     ███████║██║   ██║██╔██╗ ██║██║     ███████║█████╗  ██████╔╝
+██║     ██╔══██║██║   ██║██║╚██╗██║██║     ██╔══██║██╔══╝  ██╔══██╗
+███████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╗██║  ██║███████╗██║  ██║
+╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+
+██████╗ ██████╗  █████╗ ██╗    ██╗███████╗██████╗ 
+██╔══██╗██╔══██╗██╔══██╗██║    ██║██╔════╝██╔══██╗
+██║  ██║██████╔╝███████║██║ █╗ ██║█████╗  ██████╔╝
+██║  ██║██╔══██╗██╔══██║██║███╗██║██╔══╝  ██╔══██╗
+██████╔╝██║  ██║██║  ██║╚███╔███╔╝███████╗██║  ██║
+╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
+</pre>
+
+**A slick, configurable app-launcher drawer for the GNOME taskbar.**
+
+</div>
+
+---
 
 Click the panel icon — or tap a hotkey — and a smooth, animated grid of your favourite apps slides into view. Everything from drawer size and animation speed to icon appearance and keyboard shortcuts is tweakable from the Preferences UI.
 
@@ -11,7 +38,7 @@ Click the panel icon — or tap a hotkey — and a smooth, animated grid of your
 - **Panel button** — sits in any area of the taskbar (left, center, right); icon is fully customisable
 - **Animated drawer** — slides open toward the screen centre with a configurable easing effect; set duration to `0` to disable animation entirely
 - **Scrollable icon grid** — automatically reflows icons to fit the drawer width; optionally show or hide app name labels
-- **App manager** — add any installed app via a searchable picker, then drag-reorder or remove with one click
+- **App manager** — add any installed app via a searchable picker, then reorder or remove with one click
 - **Global hotkey** — toggle the drawer from anywhere on the desktop
 - **Live settings** — all changes in Preferences take effect immediately; no shell restart required
 - **Dash to Panel compatible** — works alongside the popular taskbar extension
@@ -60,7 +87,7 @@ gnome-extensions enable  launcher-drawer@cmivxx
 
 ## Configuration
 
-Open **Settings → Extensions → Launcher Drawer → Preferences**, or:
+Open **Settings → Extensions → Gnome Launcher Drawer → Preferences**, or:
 
 ```bash
 gnome-extensions prefs launcher-drawer@cmivxx

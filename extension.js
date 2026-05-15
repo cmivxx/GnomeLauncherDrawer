@@ -20,7 +20,7 @@ class LauncherButton extends PanelMenu.Button {
 
     _init(settings) {
         // dontCreateMenu = true → we manage our own popup
-        super._init(0.5, 'Launcher Drawer', true);
+        super._init(0.5, 'Gnome Launcher Drawer', true);
 
         this._settings = settings;
         this._drawer   = null;
@@ -222,7 +222,7 @@ class LauncherButton extends PanelMenu.Button {
             try {
                 info.launch([], null);
             } catch (e) {
-                console.error(`Launcher Drawer: could not launch ${info.get_id()}: ${e.message}`);
+                console.error(`Gnome Launcher Drawer: could not launch ${info.get_id()}: ${e.message}`);
             }
             this.closeDrawer();
         });
