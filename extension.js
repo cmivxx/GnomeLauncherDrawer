@@ -140,12 +140,19 @@ class LauncherButton extends PanelMenu.Button {
             opacity:     0,
         });
 
-        // Start collapsed at the panel edge; pivot set in _positionDrawer()
+        // Must be in the stage before any layout calls (set_size, etc.)
+        Main.layoutManager.addChrome(this._drawer, {
+            affectsInputRegion: true,
+            affectsStruts:      false,
+            trackFullscreen:    true,
+        });
+
+        // Start collapsed; pivot is adjusted in _positionDrawer()
         this._drawer.set_pivot_point(0.5, 1.0);
         this._drawer.scale_y = 0.0;
         this._drawer.hide();
 
-        // Scrollable icon grid
+        // Scrollable icon grid — set_size() is safe now that drawer is in stage
         const scroll = new St.ScrollView({
             style_class:          'launcher-drawer-scroll',
             hscrollbar_policy:    St.PolicyType.NEVER,
@@ -173,12 +180,6 @@ class LauncherButton extends PanelMenu.Button {
 
         scroll.set_child(grid);
         this._drawer.add_child(scroll);
-
-        Main.layoutManager.addChrome(this._drawer, {
-            affectsInputRegion: true,
-            affectsStruts:      false,
-            trackFullscreen:    true,
-        });
     }
 
     _makeAppButton(info, iconSize, showLabels) {
